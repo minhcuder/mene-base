@@ -1,13 +1,7 @@
-var express = require("express");
-var router = express.Router();
-var homeCtrl = require("../controllers/home.controller");
+const homeRouter = require("./home.route");
 
-router.get("/home", homeCtrl.index);
-router.get("/contact", homeCtrl.contact);
+function routes(app) {
+    app.use("/home", homeRouter)
+}
 
-/* GET home page. */
-router.get("/", function (req, res, next) {
-    res.send("Welcome !");
-});
-
-module.exports = router;
+module.exports = routes
